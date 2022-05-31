@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "pGPYy0tUyrJmz2g4MAjr9DDO7gcqnD4Z9amS1OTYBnjbPSp8FsuhWP3BoehT/I0pq4eDBNC5qo9/76+PywLnaA==",
+  "dgSpecHash": "wsJh8MyXUboTa5DhT6V0lyczETuNYZHJchUy3UoW3xZ+AqluNWubYJyt0OwG3a1UkKYDsx0zxauxRPLFr7tVaw==",
   "success": true,
   "projectFilePath": "C:\\Users\\triin\\source\\repos\\EchochemChatBot\\EcoChemBotVK\\EcoChemBotVK.csproj",
   "expectedPackageFiles": [
@@ -66,8 +66,7 @@
     "C:\\Users\\triin\\.nuget\\packages\\system.xml.xpath\\4.3.0\\system.xml.xpath.4.3.0.nupkg.sha512",
     "C:\\Users\\triin\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.3.0\\system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\triin\\.nuget\\packages\\vkbotframework\\1.0.0\\vkbotframework.1.0.0.nupkg.sha512",
-    "C:\\Users\\triin\\.nuget\\packages\\vknet\\1.41.0\\vknet.1.41.0.nupkg.sha512",
-    "C:\\Users\\triin\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.14\\microsoft.netcore.app.host.win-x64.5.0.14.nupkg.sha512"
+    "C:\\Users\\triin\\.nuget\\packages\\vknet\\1.41.0\\vknet.1.41.0.nupkg.sha512"
   ],
   "logs": []
 }

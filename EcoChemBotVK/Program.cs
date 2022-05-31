@@ -1,4 +1,5 @@
 ﻿using System;
+using EcoChemChatBotVK.core;
 using VkBotFramework;
 using VkBotFramework.Models;
 using VkNet.Model.RequestParams;
@@ -24,7 +25,7 @@ namespace EcoChemBotVK
             var chatId = e.Message.PeerId;
             _bot.Api.Messages.Send(new MessagesSendParams()
             {
-                Message = "Hello",
+                Message = "Здравствуйте! Вас приветствует виртуальный помощник компании Экохим.",
                 PeerId = chatId,
                 RandomId = Environment.TickCount
             });

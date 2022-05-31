@@ -965,6 +965,16 @@
         "runtime": {
           "lib/netstandard2.0/VkNet.dll": {}
         }
+      },
+      "EcoChemChatBotVK.core/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/EcoChemChatBotVK.core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EcoChemChatBotVK.core.dll": {}
+        }
       }
     }
   },
@@ -3543,10 +3553,16 @@
         "vknet.1.41.0.nupkg.sha512",
         "vknet.nuspec"
       ]
+    },
+    "EcoChemChatBotVK.core/1.0.0": {
+      "type": "project",
+      "path": "../EcoChemChatBotVK.core/EcoChemChatBotVK.core.csproj",
+      "msbuildProject": "../EcoChemChatBotVK.core/EcoChemChatBotVK.core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "EcoChemChatBotVK.core >= 1.0.0",
       "VkBotFramework >= 1.0.0"
     ]
   },
@@ -3581,7 +3597,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\triin\\source\\repos\\EchochemChatBot\\EcoChemChatBotVK.core\\EcoChemChatBotVK.core.csproj": {
+              "projectPath": "C:\\Users\\triin\\source\\repos\\EchochemChatBot\\EcoChemChatBotVK.core\\EcoChemChatBotVK.core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -3609,12 +3629,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[5.0.14, 5.0.14]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
