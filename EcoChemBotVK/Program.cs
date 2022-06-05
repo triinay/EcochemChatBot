@@ -1,8 +1,11 @@
 ﻿using System;
-using EcoChemChatBotVK.core;
+using Microsoft.Extensions.Logging;
 using VkBotFramework;
 using VkBotFramework.Models;
 using VkNet.Model.RequestParams;
+using VkNet.Model.Keyboard;
+using VkNet.Enums.SafetyEnums;
+
 
 namespace EcoChemBotVK
 {
@@ -14,21 +17,52 @@ namespace EcoChemBotVK
 
         static void Main(string[] args)
         {
+
             _bot = new VkBot(AccessToken, GroupURL);
+
             _bot.OnMessageReceived += BotOnMessageReceived;
+
             _bot.Start();
+
             Console.ReadLine();
         }
 
         private static void BotOnMessageReceived(object sender, MessageReceivedEventArgs e)
         {
             var chatId = e.Message.PeerId;
+
+            KeyboardBuilder keyboard = DrawMainKeyboard();
+
             _bot.Api.Messages.Send(new MessagesSendParams()
             {
                 Message = "Здравствуйте! Вас приветствует виртуальный помощник компании Экохим.",
                 PeerId = chatId,
-                RandomId = Environment.TickCount
+                RandomId = Environment.TickCount,
+                Keyboard = keyboard.Build()
             });
         }
+
+        private static KeyboardBuilder DrawMainKeyboard()
+        {
+
+            var keyboard = new KeyboardBuilder();
+            keyboard.AddButton("Какой герметик мне подойдёт?", "");
+            keyboard.AddLine();
+            keyboard.AddButton("Инструкция по применению", "");
+            keyboard.AddLine();
+            keyboard.AddButton("Заказать звонок", "");
+            keyboard.AddLine();
+            keyboard.AddButton("Рассчитать стоимость доставки", "");
+            keyboard.AddLine();
+            keyboard.AddButton("Найти тех. характеристики герметика", "");
+            keyboard.AddLine();
+            keyboard.AddButton("Получить скидку", "");
+            keyboard.AddLine();
+            keyboard.AddButton("Оставить отзыв", "");
+
+            return keyboard;
+        }
+
+        
     }
 }
