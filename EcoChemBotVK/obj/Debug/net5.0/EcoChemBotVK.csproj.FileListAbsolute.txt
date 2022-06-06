@@ -23,3 +23,5 @@ C:\Users\triin\source\repos\EchochemChatBot\EcoChemBotVK\obj\Debug\net5.0\refint
 C:\Users\triin\source\repos\EchochemChatBot\EcoChemBotVK\obj\Debug\net5.0\EcoChemBotVK.pdb
 C:\Users\triin\source\repos\EchochemChatBot\EcoChemBotVK\obj\Debug\net5.0\EcoChemBotVK.genruntimeconfig.cache
 C:\Users\triin\source\repos\EchochemChatBot\EcoChemBotVK\obj\Debug\net5.0\ref\EcoChemBotVK.dll
+C:\Users\triin\source\repos\EchochemChatBot\EcoChemBotVK\bin\Debug\net5.0\EcoChemChatBotVK.core.dll
+C:\Users\triin\source\repos\EchochemChatBot\EcoChemBotVK\bin\Debug\net5.0\EcoChemChatBotVK.core.pdb

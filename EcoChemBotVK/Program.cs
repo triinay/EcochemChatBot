@@ -1,10 +1,16 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using VkBotFramework;
 using VkBotFramework.Models;
 using VkNet.Model.RequestParams;
 using VkNet.Model.Keyboard;
 using VkNet.Enums.SafetyEnums;
+
 
 
 namespace EcoChemBotVK
@@ -59,10 +65,31 @@ namespace EcoChemBotVK
             keyboard.AddButton("Получить скидку", "");
             keyboard.AddLine();
             keyboard.AddButton("Оставить отзыв", "");
-
+            keyboard.Build().Buttons = new List<IEnumerable<MessageKeyboardButton>>(){new List<MessageKeyboardButton>() {CreateLinkButton()}} ;
+            
+            
             return keyboard;
         }
 
-        
+        private static MessageKeyboardButton CreateLinkButton()
+        {
+
+            using (var sw = new StreamReader("../../Data/settings.json", Encoding.UTF8))
+            {
+                using (var jsonReader = new JsonTextReader(sw))
+                {
+                    var serializer = new JsonSerializer()
+                    {
+                        TypeNameHandling = TypeNameHandling.Auto
+                    };
+
+                    MessageKeyboardButton linkButton = serializer.Deserialize<MessageKeyboardButton>(jsonReader);
+                    return linkButton;
+                }
+            }
+
+        }
+
+
     }
 }

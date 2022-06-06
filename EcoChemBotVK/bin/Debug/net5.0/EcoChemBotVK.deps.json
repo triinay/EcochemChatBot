@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v5.0": {
       "EcoChemBotVK/1.0.0": {
         "dependencies": {
+          "EcoChemChatBotVK.core": "1.0.0",
           "VkBotFramework": "1.0.0"
         },
         "runtime": {
@@ -566,6 +567,11 @@
             "fileVersion": "1.0.0.0"
           }
         }
+      },
+      "EcoChemChatBotVK.core/1.0.0": {
+        "runtime": {
+          "EcoChemChatBotVK.core.dll": {}
+        }
       }
     }
   },
@@ -1015,6 +1021,11 @@
       "sha512": "sha512-rmMA9yo2UtpmxIFJFlX54Tnax9C/Hl4PExjoidUbfSucxyOaItBNWRKVN6KrdzEnbZ1ByLu934AzmL+EAtBODg==",
       "path": "vknet/1.41.0",
       "hashPath": "vknet.1.41.0.nupkg.sha512"
+    },
+    "EcoChemChatBotVK.core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }
