@@ -1,6 +1,11 @@
-{
-  "action": {
-    "label": "Заказать звонок",
-    "link": "https://www.germetic-rus.ru/contacts/"
-  }
-}
+[
+  [
+    {
+      "action": {
+        "type": "open_link",
+        "link": "https://www.germetic-rus.ru/contacts/",
+        "label": "Contacts"
+      }
+    }
+  ]
+]

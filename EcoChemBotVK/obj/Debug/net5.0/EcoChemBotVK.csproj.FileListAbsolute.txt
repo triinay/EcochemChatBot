@@ -9,7 +9,6 @@ C:\Users\triin\source\repos\EchochemChatBot\EcoChemBotVK\bin\Debug\net5.0\Micros
 C:\Users\triin\source\repos\EchochemChatBot\EcoChemBotVK\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\triin\source\repos\EchochemChatBot\EcoChemBotVK\bin\Debug\net5.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\triin\source\repos\EchochemChatBot\EcoChemBotVK\bin\Debug\net5.0\Newtonsoft.Json.dll
-C:\Users\triin\source\repos\EchochemChatBot\EcoChemBotVK\bin\Debug\net5.0\System.Xml.XPath.XmlDocument.dll
 C:\Users\triin\source\repos\EchochemChatBot\EcoChemBotVK\bin\Debug\net5.0\VkBotFramework.dll
 C:\Users\triin\source\repos\EchochemChatBot\EcoChemBotVK\bin\Debug\net5.0\VkNet.dll
 C:\Users\triin\source\repos\EchochemChatBot\EcoChemBotVK\obj\Debug\net5.0\EcoChemBotVK.csproj.AssemblyReference.cache
