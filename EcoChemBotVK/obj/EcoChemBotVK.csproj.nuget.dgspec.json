@@ -1,33 +1,39 @@
 {
   "format": 1,
   "restore": {
-    "/Users/nelli/Desktop/bot/EcochemChatBot/EcoChemBotVK/EcoChemBotVK.csproj": {}
+    "C:\\Users\\triin\\source\\repos\\EchochemChatBot\\EcoChemBotVK\\EcoChemBotVK.csproj": {}
   },
   "projects": {
-    "/Users/nelli/Desktop/bot/EcochemChatBot/EcoChemBotVK/EcoChemBotVK.csproj": {
+    "C:\\Users\\triin\\source\\repos\\EchochemChatBot\\EcoChemBotVK\\EcoChemBotVK.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/nelli/Desktop/bot/EcochemChatBot/EcoChemBotVK/EcoChemBotVK.csproj",
+        "projectUniqueName": "C:\\Users\\triin\\source\\repos\\EchochemChatBot\\EcoChemBotVK\\EcoChemBotVK.csproj",
         "projectName": "EcoChemBotVK",
-        "projectPath": "/Users/nelli/Desktop/bot/EcochemChatBot/EcoChemBotVK/EcoChemBotVK.csproj",
-        "packagesPath": "/Users/nelli/.nuget/packages/",
-        "outputPath": "/Users/nelli/Desktop/bot/EcochemChatBot/EcoChemBotVK/obj/",
+        "projectPath": "C:\\Users\\triin\\source\\repos\\EchochemChatBot\\EcoChemBotVK\\EcoChemBotVK.csproj",
+        "packagesPath": "C:\\Users\\triin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\triin\\source\\repos\\EchochemChatBot\\EcoChemBotVK\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/nelli/.config/NuGet/NuGet.Config"
+          "C:\\Users\\triin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/Users/nelli/Desktop/bot/EcochemChatBot/EcoChemChatBotVK.core/EcoChemChatBotVK.core.csproj": {
-                "projectPath": "/Users/nelli/Desktop/bot/EcochemChatBot/EcoChemChatBotVK.core/EcoChemChatBotVK.core.csproj"
+              "C:\\Users\\triin\\source\\repos\\EchochemChatBot\\EcoChemChatBotVK.core\\EcoChemChatBotVK.core.csproj": {
+                "projectPath": "C:\\Users\\triin\\source\\repos\\EchochemChatBot\\EcoChemChatBotVK.core\\EcoChemChatBotVK.core.csproj"
               }
             }
           }
@@ -70,26 +76,32 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.408/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/nelli/Desktop/bot/EcochemChatBot/EcoChemChatBotVK.core/EcoChemChatBotVK.core.csproj": {
+    "C:\\Users\\triin\\source\\repos\\EchochemChatBot\\EcoChemChatBotVK.core\\EcoChemChatBotVK.core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/nelli/Desktop/bot/EcochemChatBot/EcoChemChatBotVK.core/EcoChemChatBotVK.core.csproj",
+        "projectUniqueName": "C:\\Users\\triin\\source\\repos\\EchochemChatBot\\EcoChemChatBotVK.core\\EcoChemChatBotVK.core.csproj",
         "projectName": "EcoChemChatBotVK.core",
-        "projectPath": "/Users/nelli/Desktop/bot/EcochemChatBot/EcoChemChatBotVK.core/EcoChemChatBotVK.core.csproj",
-        "packagesPath": "/Users/nelli/.nuget/packages/",
-        "outputPath": "/Users/nelli/Desktop/bot/EcochemChatBot/EcoChemChatBotVK.core/obj/",
+        "projectPath": "C:\\Users\\triin\\source\\repos\\EchochemChatBot\\EcoChemChatBotVK.core\\EcoChemChatBotVK.core.csproj",
+        "packagesPath": "C:\\Users\\triin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\triin\\source\\repos\\EchochemChatBot\\EcoChemChatBotVK.core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/nelli/.config/NuGet/NuGet.Config"
+          "C:\\Users\\triin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -128,7 +140,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.408/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

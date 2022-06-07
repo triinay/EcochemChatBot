@@ -1,14 +1,13 @@
 ﻿using System;
-using VkNet;
-using VkNet.Model.RequestParams;
-using VkNet.Model;
-using VkNet.Enums.Filters;
-using System.Threading;
 using System.Linq;
+using System.Threading;
+using VkNet;
+using VkNet.Model;
+using VkNet.Model.RequestParams;
 
-namespace EcoChemBotVK
+namespace EcoChemChatBotVK.core
 {
-    class VKMessageManager
+    public class VKMessageManager
     {
         private VkApi _api = new VkApi();
         private ulong ts;
@@ -16,7 +15,7 @@ namespace EcoChemBotVK
         public event Action<Message, User> OnNewMessage;
 
         public VKMessageManager()
-        { 
+        {
             _api.Authorize(new ApiAuthParams()
             {
                 AccessToken = "c4db624efe67503f7b14d139a4d80a48b928b27511387a972461b7b7391c3e8125d7dce1098b6c8a4f8cd"
@@ -51,7 +50,7 @@ namespace EcoChemBotVK
                     switch (longPollResponse.History[i][0])
                     {
                         //Код 4 - новое сообщение
-                        case 4 :
+                        case 4:
                             OnNewMessage?.Invoke(
                                 longPollResponse.Messages[i],
                                 longPollResponse.Profiles
@@ -72,7 +71,6 @@ namespace EcoChemBotVK
                 }
             }
         }
+
     }
 }
-
-

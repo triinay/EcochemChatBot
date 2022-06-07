@@ -8,7 +8,7 @@ using VkNet.Model.RequestParams;
 using VkNet.Model.Keyboard;
 using VkNet.Enums.SafetyEnums;
 using VkNet.Model;
-
+using EcoChemChatBotVK.core;
 
 namespace EcoChemBotVK
 {
