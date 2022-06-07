@@ -4,7 +4,55 @@
       "action": {
         "type": "open_link",
         "link": "https://www.germetic-rus.ru/contacts/",
-        "label": "Contacts"
+        "label": "Заказать звонок"
+      }
+    }
+  ],
+  [
+    {
+      "action": {
+        "type": "text",
+        "label": "Инструкция по применению"
+      }
+    }
+  ],
+  [
+    {
+      "action": {
+        "type": "text",
+        "label": "Какой герметик мне подойдёт?"
+      }
+    }
+  ],
+  [
+    {
+      "action": {
+        "type": "text",
+        "label": "Найти тех. характеристики герметика"
+      }
+    }
+  ],
+  [
+    {
+      "action": {
+        "type": "text",
+        "label": "Оставить отзыв"
+      }
+    }
+  ],
+  [
+    {
+      "action": {
+        "type": "text",
+        "label": "Получить скидку"
+      }
+    }
+  ],
+  [
+    {
+      "action": {
+        "type":  "text",
+        "label": "Рассчитать стоимость доставки"
       }
     }
   ]

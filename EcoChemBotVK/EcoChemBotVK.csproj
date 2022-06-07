@@ -12,10 +12,14 @@
   <ItemGroup>
     <PackageReference Include="VkBotFramework" Version="1.0.0" />
     <PackageReference Include="VkNet" Version="1.69.0" />
+    <PackageReference Include="VkNet.FluentCommands.UserBot" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\EcoChemChatBotVK.core\EcoChemChatBotVK.core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="VkNet.FluentCommands.UserBot" />
+  </ItemGroup>
 </Project>
