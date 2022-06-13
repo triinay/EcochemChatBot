@@ -73,15 +73,21 @@ namespace EcoChemBotVK
                         break;
 
                     case "{\"button\":\"15kg\"}":
-                        FifteenKgDelivery(message, sender);
+                        const string bot_answer_15kg = "Доставка будет стоить 500 рублей по Москве.";
+                        Delivery(message, sender, bot_answer_15kg);
                         break;
 
                     case "{\"button\":\"150kg\"}":
-                        OneHundredFiftyKgDelivery(message, sender);
+                        const string bot_answer_150kg = "Доставка будет осуществляться на легковом " +
+                        "автомобиле и будет стоить 1500 рублей по Москве.";
+                        Delivery(message, sender, bot_answer_150kg);
                         break;
 
                     case "{\"button\":\"1t\"}":
-                        OneTonDelivery(message, sender);
+                        const string bot_answer_1t = "Доставка будет стоить 15 рублей за каждый километр. " +
+                        "Дополнительно взымается 2500 рублей, если доставка занимает менее 5 часов по Москве. " +
+                        "После 5 часов за каждый дополнительный час взымается 500 рублей.";
+                        Delivery(message, sender, bot_answer_1t);
                         break;
                 }
             };
@@ -89,41 +95,8 @@ namespace EcoChemBotVK
             manager.StartMessagesHandling();
         }
 
-        private static void OneTonDelivery(Message message, User sender)
+        private static void Delivery(Message message, User sender, string bot_answer)
         {
-            const string bot_answer = "Доставка будет стоить 15 рублей за каждый километр. " +
-                "Дополнительно взымается 2500 рублей, если доставка занимает менее 5 часов по Москве. " +
-                "После 5 часов за каждый дополнительный час взымается 500 рублей.";
-
-            api.Messages.Send(new MessagesSendParams()
-            {
-                PeerId = sender.Id,
-                Message = bot_answer,
-                RandomId = new Random().Next(minValue: 0, maxValue: 10000),
-            });
-
-            TurnBackFromWork(message, sender);
-        }
-
-        private static void OneHundredFiftyKgDelivery(Message message, User sender)
-        {
-            const string bot_answer = "Доставка будет осуществляться на легковом " +
-                "автомобиле и будет стоить 1500 рублей по Москве.";
-
-            api.Messages.Send(new MessagesSendParams()
-            {
-                PeerId = sender.Id,
-                Message = bot_answer,
-                RandomId = new Random().Next(minValue: 0, maxValue: 10000),
-            });
-
-            TurnBackFromWork(message, sender);
-        }
-
-        private static void FifteenKgDelivery(Message message, User sender)
-        {
-            const string bot_answer = "Доставка будет стоить 500 рублей по Москве.";
-
             api.Messages.Send(new MessagesSendParams()
             {
                 PeerId = sender.Id,
@@ -250,7 +223,6 @@ namespace EcoChemBotVK
             });
 
             TurnBackFromWork(message, sender);
-
         }
 
         private static void InteriorWorkButtons(Message message, User sender)
@@ -283,7 +255,6 @@ namespace EcoChemBotVK
                 RandomId = new Random().Next(minValue: 0, maxValue: 10000),
                 Keyboard = keyboard
             });
-
         }
 
         private static void ChoiceBetweenColorAndScopeButtons(Message message, User sender)
@@ -299,7 +270,6 @@ namespace EcoChemBotVK
                 RandomId = new Random().Next(minValue: 0, maxValue: 10000),
                 Keyboard = keyboard
             });
-
         }
 
         private static void MainKeyboard(Message message, User sender)
@@ -330,7 +300,6 @@ namespace EcoChemBotVK
             return keyboard;
         }
 
-
         private static List<List<MessageKeyboardButton>> CreateButtons(string filename)
         {
             using var sw = new StreamReader(filename, Encoding.UTF8);
@@ -347,14 +316,12 @@ namespace EcoChemBotVK
 
         public static List<Feedback> ReadFeedback()
         {
-
             List<Feedback> FeedBack;
 
             try
             {
                 using (var sw = new StreamReader("../../Data/Feedback.json", Encoding.UTF8))
                 {
-
                     using (var jsonReader = new JsonTextReader(sw))
                     {
                         var serializer = new JsonSerializer()
