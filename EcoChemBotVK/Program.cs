@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using EcoChemChatBotVK.core;
 using Newtonsoft.Json;
 using VkNet;
+using Message = System.ServiceModel.Channels.Message;
 using VkNet.Model;
 using VkNet.Model.Attachments;
 using VkNet.Model.RequestParams;
@@ -102,6 +104,52 @@ namespace EcoChemBotVK
 
         private static void Delivery(Message message, User sender, string bot_answer)
         {
+            const string bot_answer = "Доставка будет стоить 15 рублей за каждый километр. " +
+                                      "Дополнительно взымается 2500 рублей, если доставка занимает менее 5 часов по Москве. " +
+                                      "После 5 часов за каждый дополнительный час взымается 500 рублей.";
+
+            api.Messages.Send(new MessagesSendParams()
+            {
+                PeerId = sender.Id,
+                Message = bot_answer,
+                RandomId = new Random().Next(minValue: 0, maxValue: 10000),
+            });
+
+            TurnBackFromWork(message, sender);
+        }
+
+        private static string GetPhoto(Message message, User sender)
+        {
+             string url = "";
+             List<Attachment> photos = message.Attachments.ToList();
+             foreach (var att in photos)
+             {
+                 Console.WriteLine(att.Type);
+                 Photo get_url = (Photo)att.Instance;
+                 url = get_url.Sizes[0].Url.ToString();
+             };
+             return url;
+        }
+
+        private static void OneHundredFiftyKgDelivery(Message message, User sender)
+        {
+            const string bot_answer = "Доставка будет осуществляться на легковом " +
+                "автомобиле и будет стоить 1500 рублей по Москве.";
+
+            api.Messages.Send(new MessagesSendParams()
+            {
+                PeerId = sender.Id,
+                Message = bot_answer,
+                RandomId = new Random().Next(minValue: 0, maxValue: 10000),
+            });
+
+            TurnBackFromWork(message, sender);
+        }
+
+        private static void FifteenKgDelivery(Message message, User sender)
+        {
+            const string bot_answer = "Доставка будет стоить 500 рублей по Москве.";
+
             api.Messages.Send(new MessagesSendParams()
             {
                 PeerId = sender.Id,
