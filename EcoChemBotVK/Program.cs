@@ -6,19 +6,17 @@ using System.Text;
 using EcoChemChatBotVK.core;
 using Newtonsoft.Json;
 using VkNet;
-using Message = System.ServiceModel.Channels.Message;
 using VkNet.Model;
 using VkNet.Model.Attachments;
 using VkNet.Model.RequestParams;
 using VkNet.Model.Keyboard;
-using VkNet.Model;
 
 namespace EcoChemBotVK
 {
     internal class Program
     {
         static VkApi api = new VkApi();
-        static List<Feedback> FeedBack;
+        static List<FeedBack> feedback;
 
         static void Main(string[] args)
         {
@@ -60,19 +58,19 @@ namespace EcoChemBotVK
                         break;
 
                     case "{\"button\":\"FeedBack\"}":
-                        FeedBack = Feedback(message, sender);
+                        feedback = Feedback(message, sender);
                         break;
 
                     case "{\"button\":\"GoodChoice\"}":
-                        GoodChoice(message, sender, FeedBack);
+                        GoodChoice(message, sender, feedback);
                         break;
 
                     case "{\"button\":\"BadChoice\"}":
-                        BadChoice(message, sender, FeedBack);
+                        BadChoice(message, sender, feedback);
                         break;
 
                     case "{\"button\":\"NeutralChoice\"}":
-                        NeutralChoice(message, sender, FeedBack);
+                        NeutralChoice(message, sender, feedback);
                         break;
 
                     case "{\"button\":\"DeliveryChoice\"}":
@@ -104,9 +102,6 @@ namespace EcoChemBotVK
 
         private static void Delivery(Message message, User sender, string bot_answer)
         {
-            const string bot_answer = "Доставка будет стоить 15 рублей за каждый километр. " +
-                                      "Дополнительно взымается 2500 рублей, если доставка занимает менее 5 часов по Москве. " +
-                                      "После 5 часов за каждый дополнительный час взымается 500 рублей.";
 
             api.Messages.Send(new MessagesSendParams()
             {
@@ -176,7 +171,7 @@ namespace EcoChemBotVK
             });
         }
 
-        private static void NeutralChoice(Message message, User sender, List<Feedback> FeedBack)
+        private static void NeutralChoice(Message message, User sender, List<FeedBack> FeedBack)
         {
             api.Messages.Send(new MessagesSendParams()
             {
@@ -192,7 +187,7 @@ namespace EcoChemBotVK
             TurnBackFromWork(message, sender);
         }
 
-        private static void BadChoice(Message message, User sender, List<Feedback> FeedBack)
+        private static void BadChoice(Message message, User sender, List<FeedBack> FeedBack)
         {
             api.Messages.Send(new MessagesSendParams()
             {
@@ -208,7 +203,7 @@ namespace EcoChemBotVK
             TurnBackFromWork(message, sender);
         }
 
-        private static void GoodChoice(Message message, User sender, List<Feedback> FeedBack)
+        private static void GoodChoice(Message message, User sender, List<FeedBack> FeedBack)
         {
             api.Messages.Send(new MessagesSendParams()
             {
@@ -224,7 +219,7 @@ namespace EcoChemBotVK
             TurnBackFromWork(message, sender);
         }
 
-        private static List<Feedback> Feedback(Message message, User sender)
+        private static List<FeedBack> Feedback(Message message, User sender)
         {
             const string filename = "../../Data/FeedbackButtons.json";
             MessageKeyboard keyboard = DrawKeyboard(filename: filename, oneTime: false, inLine: true);
@@ -237,8 +232,8 @@ namespace EcoChemBotVK
                 Keyboard = keyboard
             });
 
-            List<Feedback> FeedBack = ReadFeedback();
-            Feedback feedback = new Feedback();
+            List<FeedBack> FeedBack = ReadFeedback();
+            FeedBack feedback = new FeedBack();
             feedback.UserId = sender.Id;
             FeedBack.Add(feedback);
 
@@ -367,9 +362,9 @@ namespace EcoChemBotVK
             return buttons;
         }
 
-        public static List<Feedback> ReadFeedback()
+        public static List<FeedBack> ReadFeedback()
         {
-            List<Feedback> FeedBack;
+            List<FeedBack> FeedBack;
 
             try
             {
@@ -382,18 +377,18 @@ namespace EcoChemBotVK
                             TypeNameHandling = TypeNameHandling.Auto
                         };
 
-                        FeedBack = serializer.Deserialize<List<Feedback>>(jsonReader);
+                        FeedBack = serializer.Deserialize<List<FeedBack>>(jsonReader);
                     }
                 }
             }
             catch
             {
-                FeedBack = new List<Feedback>();
+                FeedBack = new List<FeedBack>();
             }
             return FeedBack;
         }
 
-        public static void SaveFeedback(List<Feedback> FeedBack)
+        public static void SaveFeedback(List<FeedBack> FeedBack)
         {
             using (var sw = new StreamWriter("../../Data/Feedback.json"))
             {

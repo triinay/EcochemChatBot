@@ -2,9 +2,9 @@
   [
     {
       "action": {
-        "type": "text",
+        "type": "open_link",
         "label": "Выбрать по цвету",
-        "payload": "{\"button\": \"ColourChoice\"}"
+        "link": "https://vk.com/im?sel=-213913849"
       }
     }
   ],
