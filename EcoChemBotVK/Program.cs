@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using EcoChemChatBotVK.core;
 using Newtonsoft.Json;
 using VkNet;
 using VkNet.Model;
 using VkNet.Model.Attachments;
 using VkNet.Model.RequestParams;
 using VkNet.Model.Keyboard;
-using FeedBack = EcoChemChatBotVK.core.FeedBack;
+using VkNet.Model;
 
 namespace EcoChemBotVK
 {
     internal class Program
     {
         static VkApi api = new VkApi();
-        static List<FeedBack> FeedBack;
+        static List<Feedback> FeedBack;
 
         static void Main(string[] args)
         {
@@ -79,15 +78,21 @@ namespace EcoChemBotVK
                         break;
 
                     case "{\"button\":\"15kg\"}":
-                        FifteenKgDelivery(message, sender);
+                        const string bot_answer_15kg = "Доставка будет стоить 500 рублей по Москве.";
+                        Delivery(message, sender, bot_answer_15kg);
                         break;
 
                     case "{\"button\":\"150kg\"}":
-                        OneHundredFiftyKgDelivery(message, sender);
+                        const string bot_answer_150kg = "Доставка будет осуществляться на легковом " +
+                        "автомобиле и будет стоить 1500 рублей по Москве.";
+                        Delivery(message, sender, bot_answer_150kg);
                         break;
 
                     case "{\"button\":\"1t\"}":
-                        OneTonDelivery(message, sender);
+                        const string bot_answer_1t = "Доставка будет стоить 15 рублей за каждый километр. " +
+                        "Дополнительно взымается 2500 рублей, если доставка занимает менее 5 часов по Москве. " +
+                        "После 5 часов за каждый дополнительный час взымается 500 рублей.";
+                        Delivery(message, sender, bot_answer_1t);
                         break;
                 }
             };
@@ -95,54 +100,8 @@ namespace EcoChemBotVK
             manager.StartMessagesHandling();
         }
 
-        private static void OneTonDelivery(Message message, User sender)
+        private static void Delivery(Message message, User sender, string bot_answer)
         {
-            const string bot_answer = "Доставка будет стоить 15 рублей за каждый километр. " +
-                "Дополнительно взымается 2500 рублей, если доставка занимает менее 5 часов по Москве. " +
-                "После 5 часов за каждый дополнительный час взымается 500 рублей.";
-
-            api.Messages.Send(new MessagesSendParams()
-            {
-                PeerId = sender.Id,
-                Message = bot_answer,
-                RandomId = new Random().Next(minValue: 0, maxValue: 10000),
-            });
-
-            TurnBackFromWork(message, sender);
-        }
-
-        private static string GetPhoto(Message message, User sender)
-        {
-             string url = "";
-             List<Attachment> photos = message.Attachments.ToList();
-             foreach (var att in photos)
-             {
-                 Console.WriteLine(att.Type);
-                 Photo get_url = (Photo)att.Instance;
-                 url = get_url.Sizes[0].Url.ToString();
-             };
-             return url;
-        }
-
-        private static void OneHundredFiftyKgDelivery(Message message, User sender)
-        {
-            const string bot_answer = "Доставка будет осуществляться на легковом " +
-                "автомобиле и будет стоить 1500 рублей по Москве.";
-
-            api.Messages.Send(new MessagesSendParams()
-            {
-                PeerId = sender.Id,
-                Message = bot_answer,
-                RandomId = new Random().Next(minValue: 0, maxValue: 10000),
-            });
-
-            TurnBackFromWork(message, sender);
-        }
-
-        private static void FifteenKgDelivery(Message message, User sender)
-        {
-            const string bot_answer = "Доставка будет стоить 500 рублей по Москве.";
-
             api.Messages.Send(new MessagesSendParams()
             {
                 PeerId = sender.Id,
@@ -156,7 +115,7 @@ namespace EcoChemBotVK
         private static void DeliveryChoice(Message message, User sender)
         {
             const string filename = "../../Data/DeliveryButtons.json";
-            const string bot_answer = "Выберите вес Вашего груза:";
+            const string bot_answer = "Выберете вес Вашего груза:";
 
             MessageKeyboard keyboard = DrawKeyboard(filename: filename, oneTime: false, inLine: true);
 
@@ -169,7 +128,7 @@ namespace EcoChemBotVK
             });
         }
 
-        private static void NeutralChoice(Message message, User sender, List<FeedBack> FeedBack)
+        private static void NeutralChoice(Message message, User sender, List<Feedback> FeedBack)
         {
             api.Messages.Send(new MessagesSendParams()
             {
@@ -185,7 +144,7 @@ namespace EcoChemBotVK
             TurnBackFromWork(message, sender);
         }
 
-        private static void BadChoice(Message message, User sender, List<FeedBack> FeedBack)
+        private static void BadChoice(Message message, User sender, List<Feedback> FeedBack)
         {
             api.Messages.Send(new MessagesSendParams()
             {
@@ -201,7 +160,7 @@ namespace EcoChemBotVK
             TurnBackFromWork(message, sender);
         }
 
-        private static void GoodChoice(Message message, User sender, List<FeedBack> FeedBack)
+        private static void GoodChoice(Message message, User sender, List<Feedback> FeedBack)
         {
             api.Messages.Send(new MessagesSendParams()
             {
@@ -217,7 +176,7 @@ namespace EcoChemBotVK
             TurnBackFromWork(message, sender);
         }
 
-        private static List<FeedBack> Feedback(Message message, User sender)
+        private static List<Feedback> Feedback(Message message, User sender)
         {
             const string filename = "../../Data/FeedbackButtons.json";
             MessageKeyboard keyboard = DrawKeyboard(filename: filename, oneTime: false, inLine: true);
@@ -230,9 +189,9 @@ namespace EcoChemBotVK
                 Keyboard = keyboard
             });
 
-            List<FeedBack> FeedBack = ReadFeedback();
-            FeedBack feedback = new FeedBack();
-            feedback.UserId= sender.Id;
+            List<Feedback> FeedBack = ReadFeedback();
+            Feedback feedback = new Feedback();
+            feedback.UserId = sender.Id;
             FeedBack.Add(feedback);
 
             return FeedBack;
@@ -269,7 +228,6 @@ namespace EcoChemBotVK
             });
 
             TurnBackFromWork(message, sender);
-
         }
 
         private static void InteriorWorkButtons(Message message, User sender)
@@ -292,7 +250,7 @@ namespace EcoChemBotVK
         private static void ScopeChoiceButtons(Message message, User sender)
         {
             const string filename = "../../Data/MainScopeButtons.json";
-            const string bot_answer = "Выберите тип работ:";
+            const string bot_answer = "Выберете тип работ:";
 
             MessageKeyboard keyboard = DrawKeyboard(filename: filename, oneTime: false, inLine: true);
             api.Messages.Send(new MessagesSendParams()
@@ -302,13 +260,12 @@ namespace EcoChemBotVK
                 RandomId = new Random().Next(minValue: 0, maxValue: 10000),
                 Keyboard = keyboard
             });
-
         }
 
         private static void ChoiceBetweenColorAndScopeButtons(Message message, User sender)
         {
             const string filename = "../../Data/ChoiceBetweenColorAndScopeButtons.json";
-            const string bot_answer = "Пожалуйста, выберите подходящую опцию.";
+            const string bot_answer = "Пожалуйста, выберете подходящую опцию.";
 
             MessageKeyboard keyboard = DrawKeyboard(filename, oneTime: true, inLine: false);
             api.Messages.Send(new MessagesSendParams()
@@ -318,7 +275,6 @@ namespace EcoChemBotVK
                 RandomId = new Random().Next(minValue: 0, maxValue: 10000),
                 Keyboard = keyboard
             });
-
         }
 
         private static void MainKeyboard(Message message, User sender)
@@ -349,7 +305,6 @@ namespace EcoChemBotVK
             return keyboard;
         }
 
-
         private static List<List<MessageKeyboardButton>> CreateButtons(string filename)
         {
             using var sw = new StreamReader(filename, Encoding.UTF8);
@@ -364,16 +319,14 @@ namespace EcoChemBotVK
             return buttons;
         }
 
-        public static List<FeedBack> ReadFeedback()
+        public static List<Feedback> ReadFeedback()
         {
-
-            List<FeedBack> FeedBack;
+            List<Feedback> FeedBack;
 
             try
             {
                 using (var sw = new StreamReader("../../Data/Feedback.json", Encoding.UTF8))
                 {
-
                     using (var jsonReader = new JsonTextReader(sw))
                     {
                         var serializer = new JsonSerializer()
@@ -381,18 +334,18 @@ namespace EcoChemBotVK
                             TypeNameHandling = TypeNameHandling.Auto
                         };
 
-                        FeedBack = serializer.Deserialize<List<FeedBack>>(jsonReader);
+                        FeedBack = serializer.Deserialize<List<Feedback>>(jsonReader);
                     }
                 }
             }
             catch
             {
-                FeedBack = new List<FeedBack>();
+                FeedBack = new List<Feedback>();
             }
             return FeedBack;
         }
 
-        public static void SaveFeedback(List<FeedBack> FeedBack)
+        public static void SaveFeedback(List<Feedback> FeedBack)
         {
             using (var sw = new StreamWriter("../../Data/Feedback.json"))
             {
