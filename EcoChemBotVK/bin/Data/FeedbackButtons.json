@@ -1,0 +1,28 @@
+﻿[
+  [
+    {
+      "color": "positive",
+      "action": {
+        "type": "text",
+        "label": "Отлично",
+        "payload": "{\"button\":\"GoodChoice\"}"
+      }
+    },
+    {
+      "color": "secondary",
+      "action": {
+        "type": "text",
+        "label": "Неплохо",
+        "payload": "{\"button\":\"NeutralChoice\"}"
+      }
+    },
+    {
+      "color": "negative",
+      "action": {
+        "type": "text",
+        "label": "Ужасно",
+        "payload": "{\"button\":\"BadChoice\"}"
+      }
+    }
+  ]
+]

@@ -1,0 +1,18 @@
+﻿[
+  [
+    {
+      "action": {
+        "type": "open_link",
+        "label": "Окна и двери",
+        "link": "https://www.germetic-rus.ru/catalog/akrilovye-germetiki/rustil-akril-belyj-7-kg/?sphrase_id=961"
+      }
+    },
+    {
+      "action": {
+        "type": "open_link",
+        "label": "Пол",
+        "link": "https://www.germetic-rus.ru/catalog/polimernye-poly/germetik-dlya-betonnogo-pola-rustil-1k/?sphrase_id=960"
+      }
+    }
+  ]
+]

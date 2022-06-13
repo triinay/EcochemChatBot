@@ -1,0 +1,20 @@
+﻿[
+  [
+    {
+      "action": {
+        "type": "text",
+        "label": "Выбрать по цвету",
+        "payload": "{\"button\": \"ColourChoice\"}"
+      }
+    }
+  ],
+  [
+    {
+      "action": {
+        "type": "text",
+        "label": "Выбрать по области применения",
+        "payload": "{\"button\": \"ScopeChoice\"}"
+      }
+    }
+  ]
+]

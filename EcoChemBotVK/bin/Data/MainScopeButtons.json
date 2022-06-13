@@ -1,0 +1,18 @@
+﻿[
+  [
+    {
+      "action": {
+        "type": "text",
+        "label": "Наружные",
+        "payload": "{\"button\":\"ExteriorWorkChoice\"}"
+      }
+    },
+    {
+      "action": {
+        "type": "text",
+        "label": "Внутренние",
+        "payload": "{\"button\":\"InteriorWorkChoice\"}"
+      }
+    }
+  ]
+]

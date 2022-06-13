@@ -1,0 +1,50 @@
+﻿[
+  [
+    {
+      "action": {
+        "type": "open_link",
+        "label": "Фасад",
+        "link": "https://www.germetic-rus.ru/catalog/poliuretanovye-germetiki/germetik-rustil-p-poliuretanovyy-dvukhkomponentnyy-p-vedro-7-kg/"
+      }
+    },
+    {
+      "action": { 
+        "type": "open_link",
+        "label": "Окна и двери",
+        "link": "https://www.germetic-rus.ru/catalog/akrilovye-germetiki/rustil-akril-belyj-7-kg/?sphrase_id=961"
+      }
+    }
+  ],
+  [
+    {
+      "action": { 
+        "type": "open_link",
+        "label": "Кровля",
+        "link": "https://www.germetic-rus.ru/catalog/prochaya-produktsiya/mk-90-mastika-bitumno-polimernaya/?sphrase_id=969"
+      }
+    },
+    {
+      "action": { 
+        "type": "open_link",
+        "label": "Пол",
+        "link": "https://www.germetic-rus.ru/catalog/polimernye-poly/germetik-dlya-betonnogo-pola-rustil-1k/?sphrase_id=960"
+      }
+    }
+  ],
+  [
+    {
+      "action": {
+        "type": "open_link",
+        "label": "Трещины",
+        "link": "https://www.germetic-rus.ru/catalog/poliuretanovye-germetiki/germetik-oksiplast/?sphrase_id=981"
+      }
+    },
+    {
+      "action": { 
+        "type": "open_link",
+        "label": "Панельные швы",
+        "link": "https://www.germetic-rus.ru/catalog/poliuretanovye-germetiki/poliuretanovyy-germetik-dlya-naruzhnykh-rabot-tektor-201-belyy-12-5-kg/?sphrase_id=977"
+      }
+    }
+  ]
+]

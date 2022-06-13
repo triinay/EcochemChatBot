@@ -1,0 +1,32 @@
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{E632BD98-6B29-4484-86D0-DFC6728CF443}|Default">
+  <MonoDevelop.Ide.ItemProperties.EcoChemBotVK PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="bin/Data/FeedbackButtons.json">
+    <Files>
+      <File FileName="Program.cs" Line="81" Column="1" />
+      <File FileName="Feedback.cs" />
+      <File FileName="bin/Data/DeliveryButtons.json" />
+      <File FileName="bin/Data/FeedbackButtons.json" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="EcoChemBotVK" expanded="True">
+            <Node name="EcoChemBotVK" expanded="True">
+              <Node name="bin" expanded="True">
+                <Node name="Data" expanded="True">
+                  <Node name="FeedbackButtons.json" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

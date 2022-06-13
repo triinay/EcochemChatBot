@@ -1,0 +1,25 @@
+﻿[
+  [
+    {
+      "action": {
+        "type": "text",
+        "label": "До 15 кг",
+        "payload": "{\"button\":\"15kg\"}"
+      }
+    },
+    {
+      "action": {
+        "type": "text",
+        "label": "До 150 кг",
+        "payload": "{\"button\":\"150kg\"}"
+      }
+    },
+    {
+      "action": {
+        "type": "text",
+        "label": "До 1 т",
+        "payload": "{\"button\":\"1t\"}"
+      }
+    }
+  ]
+]

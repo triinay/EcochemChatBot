@@ -1,0 +1,50 @@
+[
+  [
+    {
+      "action": {
+        "type": "text",
+        "label": "Какой герметик мне подойдёт?",
+        "payload": "{\"button\":\"SealantChoice\"}"
+      }
+    }
+  ],
+  [
+    {
+      "action": {
+        "type": "text",
+        "label": "Рассчитать стоимость доставки",
+        "payload": "{\"button\":\"DeliveryChoice\"}"
+      }
+    }
+  ],
+  [
+    {
+      "action": {
+        "type": "text",
+        "label": "Применение"
+      }
+    },
+    {
+      "action": {
+        "type": "text",
+        "label": "Получить скидку"
+      }
+    }
+  ],
+  [
+    {
+      "action": {
+        "type": "open_link",
+        "link": "https://www.germetic-rus.ru/contacts/",
+        "label": "Заказать звонок"
+      }
+    },
+    {
+      "action": {
+        "payload": "{\"button\":\"FeedBack\"}",
+        "type": "text",
+        "label": "Оставить отзыв"
+      }
+    }
+  ]
+]
