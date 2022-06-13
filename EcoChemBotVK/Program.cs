@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using EcoChemChatBotVK.core;
 using Newtonsoft.Json;
 using VkNet;
 using VkNet.Model;
+using VkNet.Model.Attachments;
 using VkNet.Model.RequestParams;
 using VkNet.Model.Keyboard;
 using FeedBack = EcoChemChatBotVK.core.FeedBack;
@@ -26,8 +28,10 @@ namespace EcoChemBotVK
             });
 
             VKMessageManager manager = new VKMessageManager();
-            
-            manager.OnNewMessage += (message, sender) => {
+
+            manager.OnNewMessage += (message, sender) =>
+            {
+                GetPhoto(message, sender);
                 switch (message.Payload)
                 {
                     case null:
@@ -105,6 +109,19 @@ namespace EcoChemBotVK
             });
 
             TurnBackFromWork(message, sender);
+        }
+
+        private static string GetPhoto(Message message, User sender)
+        {
+             string url = "";
+             List<Attachment> photos = message.Attachments.ToList();
+             foreach (var att in photos)
+             {
+                 Console.WriteLine(att.Type);
+                 Photo get_url = (Photo)att.Instance;
+                 url = get_url.Sizes[0].Url.ToString();
+             };
+             return url;
         }
 
         private static void OneHundredFiftyKgDelivery(Message message, User sender)

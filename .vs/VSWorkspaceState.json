@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\EcoChemBotVK",
+    "\\EcoChemChatBotVK.core"
   ],
-  "SelectedNode": "\\C:\\Users\\triin\\Source\\Repos\\EcochemChatBot",
+  "SelectedNode": "\\EcoChemBotVK\\EcoChemBotVK.sln",
   "PreviewInSolutionExplorer": false
 }
