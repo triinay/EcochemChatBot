@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using EcoChemChatBotVK.core;
 using Newtonsoft.Json;
 using VkNet;
 using VkNet.Model.RequestParams;
