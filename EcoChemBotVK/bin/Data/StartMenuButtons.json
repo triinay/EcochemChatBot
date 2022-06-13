@@ -20,20 +20,6 @@
   [
     {
       "action": {
-        "type": "text",
-        "label": "Применение"
-      }
-    },
-    {
-      "action": {
-        "type": "text",
-        "label": "Получить скидку"
-      }
-    }
-  ],
-  [
-    {
-      "action": {
         "type": "open_link",
         "link": "https://www.germetic-rus.ru/contacts/",
         "label": "Заказать звонок"
